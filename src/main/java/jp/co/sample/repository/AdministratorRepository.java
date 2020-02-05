@@ -1,6 +1,5 @@
 package jp.co.sample.repository;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
@@ -26,7 +25,7 @@ private NamedParameterJdbcTemplate template;
 	Administrator administrator = new Administrator();
 	administrator.setId(rs.getInt("id"));
 	administrator.setName(rs.getString("name"));
-	administrator.setMail_address(rs.getString("mail_address"));
+	administrator.setMailAddress(rs.getString("mail_address"));
 	administrator.setPassword(rs.getString("password"));
 	return administrator;	
 	};
@@ -38,13 +37,9 @@ private NamedParameterJdbcTemplate template;
 	
 	public Administrator save(Administrator administrator) {
 		SqlParameterSource param = new BeanPropertySqlParameterSource(administrator);
-		if (administrator.getId() == null) {
-			String insertSql = "INSERT INTO administrators(id,name,mail_address,password) VALUES(:id,:name,:mail_address,password)";
+			String insertSql = "INSERT INTO administrators(name,mail_address,password) VALUES(:name,:mailAddress,:password)";
 			template.update(insertSql, param);
-		} else {
-			String updateSql = "UPDATE administrators SET id=:id,name=:name,mail_address=:mail_address,password=:password";
-			template.update(updateSql, param);
-		}
+
 		return administrator;
 	}
 	/**
@@ -65,19 +60,13 @@ private NamedParameterJdbcTemplate template;
 			}
 			
 			
-			
+			//別の書き方
 //			List<Administrator> administratorList = template.query(sql,param,ADMINISTRATOR_ROW_MAPPER);
 //			if (administratorList.size() ==0){
 //				return null;
 //				}
 //			return administratorList.get(0);
 		}
-	
-		
-		
-		
-		
-		
 	
 	}
 		
