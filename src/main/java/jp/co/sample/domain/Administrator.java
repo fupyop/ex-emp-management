@@ -1,13 +1,15 @@
 package jp.co.sample.domain;
 
+/**
+ * 管理者情報を表すドメイン.
+ * 
+ * @author fuka
+ *
+ */
 public class Administrator {
-	/**
-	 * ID(主キ-)
-	 */
+	/** ID(主キ-) */
 	private Integer id;
-	/**
-	 * 名前
-	 */
+	/** 名前 */
 	private String name;
 	/**
 	 * メールアドレス
