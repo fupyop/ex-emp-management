@@ -16,12 +16,23 @@ public class EmployeeService {
 	private EmployeeRepository employeeRepository;
 	
 	/**
+	 * 従業員リストから全件検索
 	 * employeeRepositoryのfindAllメソッドの呼び出し.
 	 * @return employeeRepository
 	 */
-	public List<Employee> ShowList(){
+	public List<Employee> showList(){
 		return employeeRepository.findAll();
 	}
+	
+	/**
+	 * 従業員情報の取得
+	 * @param id
+	 * @return
+	 */
+	public Employee showDetail (Integer id) {
+		return employeeRepository.load(id);
+	}
+	
 	
 	
 }

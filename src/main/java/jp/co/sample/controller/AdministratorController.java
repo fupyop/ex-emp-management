@@ -27,7 +27,7 @@ public class AdministratorController {
 	 * @return
 	 */
 	@ModelAttribute
-	InsertAdministratorForm setUpForm() {
+	InsertAdministratorForm setUpInsertAdministratorForm() {
 		return new InsertAdministratorForm();
 		}
 	
@@ -36,7 +36,7 @@ public class AdministratorController {
 	 * @return LoginForm
 	 */
 	@ModelAttribute
-	LoginForm setUpForm2() {
+	LoginForm setUpLoginForm() {
 		return new LoginForm();
 	}
 	
