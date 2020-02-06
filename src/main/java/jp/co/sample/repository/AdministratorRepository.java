@@ -30,9 +30,9 @@ private NamedParameterJdbcTemplate template;
 	return administrator;	
 	};
 /**
- * insertメソッドを定義
+ *　管理者情報を挿入し、insertメソッドを定義.
  * @param administrator
- * @return
+ * @return administrator
  */
 	
 	public Administrator save(Administrator administrator) {
@@ -43,15 +43,15 @@ private NamedParameterJdbcTemplate template;
 		return administrator;
 	}
 	/**
-	 * findByメソッドを定義
+	 * メールアドレスとパスワードを検索（findByメソッドを定義）.
 	 * @param mailAddress1
 	 * @param password
-	 * @return
+	 * @return null
 	 */
 	
 			
 		public Administrator findByMailAddressAndPassword(String mailAddress1,String password) {
-			String sql = "SELECT * FROM administrators WHERE mail_address=:mail_address,password=:password";
+			String sql = "SELECT * FROM administrators WHERE mail_address=:mail_address AND password=:password";
 			SqlParameterSource param = new MapSqlParameterSource().addValue("mail_address", mailAddress1).addValue("password", password);
 			try {
 				return template.queryForObject(sql, param, ADMINISTRATOR_ROW_MAPPER);

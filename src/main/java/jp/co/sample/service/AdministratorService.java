@@ -12,8 +12,6 @@ import jp.co.sample.repository.AdministratorRepository;
 public class AdministratorService {
 	@Autowired
 	private AdministratorRepository administratorRepository;
-
-
 	
 	/**
 	 * insertメソッドを追加
@@ -21,4 +19,18 @@ public class AdministratorService {
 	public void insert(Administrator administrator) {
 		administratorRepository.save(administrator);
 	}
+	
+	/**
+	 * ログイン処理の記述
+	 * findByMailAddressAndPasswordメソッドの呼び出し
+	 * @param mailAddress
+	 * @param password
+	 * @return
+	 */
+	public Administrator login(String mailAddress,String password) {
+		return administratorRepository.findByMailAddressAndPassword(mailAddress, password);
+	}
+	
+	
+	
 }

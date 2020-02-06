@@ -36,8 +36,8 @@ private NamedParameterJdbcTemplate template;
 	return employee;
 };
 	/**
-	 * findAllメソッド
-	 * @return
+	 * 従業員一覧情報全件検索（findAllメソッド）.
+	 * @return employeeList
 	 */
 	public List<Employee> findAll(){
 	String sql ="SELECT * FROM employees ORDER BY hire_date";
@@ -46,9 +46,9 @@ private NamedParameterJdbcTemplate template;
 	
 }
 	/**
-	 * loadメソッド
+	 * 主キーから従業員情報を取得（loadメソッド）.
 	 * @param id
-	 * @return
+	 * @return employee
 	 */
 	public Employee load(Integer id) {
 	String sql ="SELECT * FROM employees WHERE id=:id";
@@ -58,9 +58,9 @@ private NamedParameterJdbcTemplate template;
 	}
 	
 	/**
-	 * updateメソッド
+	 * 従業員情報を更新する(updateメソッド).
 	 * @param employee
-	 * @return
+	 * @return employee
 	 */
 	public Employee save(Employee employee) {
 		SqlParameterSource param = new BeanPropertySqlParameterSource(employee);

@@ -2,7 +2,7 @@ package jp.co.sample.domain;
 
 public class Administrator {
 	/**
-	 * ID(主キ)
+	 * ID(主キ-)
 	 */
 	private Integer id;
 	/**
