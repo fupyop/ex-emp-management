@@ -34,12 +34,34 @@ public class EmployeeController {
 		model.addAttribute("employeeList", employeeList);
 		return "employee/list";
 	}
+	
+	/**
+	 * 従業員情報の呼び出し
+	 * @param id
+	 * @param model
+	 * @return　従業員情報のページ
+	 */
 	@RequestMapping("/showDetail")
 	public String showDetail(String id,Model model) {
 		Employee employee = employeeService.showDetail(Integer.parseInt(id));
 		model.addAttribute("employee", employee);
 		return "employee/detail";
 	}
+	
+	/**
+	 * 従業員詳細（扶養人数のみ）を更新する
+	 * @param form
+	 * @return 従業員リスト
+	 */
+	@RequestMapping("/update")
+	public String update(UpdateEmployeeForm form) {
+		Employee employee = new Employee();
+		    employee.setId(Integer.parseInt(form.getId()));
+		    employee.setDependentsCount(Integer.parseInt(form.getDependentsCount()));
+		    return "redirect:/employee/showList";
+	}
+	
+
 	
 	
 	

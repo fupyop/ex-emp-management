@@ -34,6 +34,14 @@ public class EmployeeService {
 	}
 	
 	
+	/**
+	 * 従業員情報更新する
+	 * @param employee
+	 */
+	public void  update (Employee employee) {
+		employeeRepository.save(employee);
+	}
+	
 	
 }
 
